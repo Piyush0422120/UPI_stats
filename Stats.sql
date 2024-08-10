@@ -227,7 +227,7 @@ SELECT Serial_no,
        Entity_name,
        ROUND(SUM(Volume_in_lakh_sent)+SUM(Volume_in_lakh_recieved),2) AS Overall_volume,
        ROUND((SUM(Volume_in_lakh_sent)+SUM(Volume_in_lakh_recieved))/(SELECT SUM(Volume_in_lakh_sent)+SUM(Volume_in_lakh_recieved)
-																	FROM stats)*100,3) AS contribution_percent
+								      FROM stats)*100,3) AS contribution_percent
 FROM stats
 GROUP BY Serial_no, entity_name
 ORDER BY Overall_volume DESC
@@ -241,7 +241,7 @@ SELECT Serial_no,
        Entity_name,
        ROUND(SUM(Value_in_crores_sent)+SUM(Value_in_crores_recieved),2) AS Overall_value,
        ROUND((SUM(Value_in_crores_sent)+SUM(Value_in_crores_recieved))/(SELECT SUM(Value_in_crores_sent)+SUM(Value_in_crores_recieved)
-																	FROM stats)*100,3) AS contribution_percent
+									FROM stats)*100,3) AS contribution_percent
 FROM stats
 GROUP BY Serial_no, entity_name
 ORDER BY Overall_value DESC
